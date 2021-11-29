@@ -3,6 +3,7 @@ package jr.soft;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -103,6 +104,24 @@ public class LoginWindow extends JFrame {
 
         passwordField = new JPasswordField();
         passwordField.setBounds(100, 95, 250, 25);
+        passwordField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent keyEvent) {
+                if (keyEvent.getKeyChar() == KeyEvent.VK_ENTER) {
+                    login();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent keyEvent) {
+                // pass
+            }
+
+            @Override
+            public void keyReleased(KeyEvent keyEvent) {
+                // pass
+            }
+        });
         contentPane.add(passwordField);
 
     }
